@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { Container, Divider, Button } from 'semantic-ui-react'
 export const SidebarStyled = styled(Container)`
   width: 18rem !important;
-  padding-right: 1rem;
+  padding: 0 1rem;
+  background-color: pink;
   section {
     display: flex !important;
     flex-direction: column;
