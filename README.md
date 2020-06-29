@@ -2,6 +2,7 @@
 
 - [About the Project](#about-the-project)
   - [Built With](#built-with)
+  - [Styling](#styling)
 - [Getting Started](#getting-started)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -19,6 +20,12 @@ This project was bootstrapped with:
 
 - [Create React App](https://github.com/facebook/create-react-app)
 - [Semantic UI React](https://react.semantic-ui.com)
+
+### Styling
+
+Use [styled-components](https://styled-components.com/) to modify components [Semantic UI React](https://react.semantic-ui.com) as needed.
+
+This [article](https://medium.com/serverlessguru/customizing-the-semantic-ui-react-library-with-styled-components-41cdab34be29) and existing components can be used as a reference.
 
 ## Getting Started
 
