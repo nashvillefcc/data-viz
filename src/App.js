@@ -1,4 +1,5 @@
 import React from 'react'
+import ContainerExampleAlignment from './container'
 
 /**
  *
@@ -7,7 +8,9 @@ import React from 'react'
  */
 
 function App () {
-  return <div className='App'>Hello World!</div>
+  return <div className='App'>
+    <ContainerExampleAlignment />
+  </div>
 }
 
 export default App
