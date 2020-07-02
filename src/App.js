@@ -1,5 +1,5 @@
 import React from 'react'
-import ContainerExampleAlignment from './Components/Layout/index.js'
+import Layout from './Components/Layout/index.js'
 
 /**
  *
@@ -10,7 +10,7 @@ import ContainerExampleAlignment from './Components/Layout/index.js'
 function App () {
   return (
     <div className='App'>
-      <ContainerExampleAlignment />
+      <Layout />
     </div>
   )
 }

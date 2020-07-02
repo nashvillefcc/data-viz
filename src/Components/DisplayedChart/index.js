@@ -1,27 +1,25 @@
 import React from 'react'
 import { Header } from 'semantic-ui-react'
-import { DisplayedChartStyled } from './DisplayedChartStyled'
+import { ChartWrapper, DisplayedChartStyled } from './DisplayedChartStyled'
 
 const Placeholder = () => {
   //inline styled only for placeholder
   return (
     <div
       style={{
-        height: '80%',
-        width: '80%',
-        backgroundColor: 'teal',
-        textAlign: 'center',
-        alignSelf: 'center'
+        textAlign: 'center'
       }}
     >
       placeholder
     </div>
   )
 }
-const DisplayedChart = () => (
+const DisplayedChart = ({ children }) => (
   <DisplayedChartStyled>
     <Header as='h1'>Title of chart</Header>
-    <Placeholder />
+    <ChartWrapper>
+      <Placeholder />
+    </ChartWrapper>
   </DisplayedChartStyled>
 )
 

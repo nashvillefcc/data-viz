@@ -9,8 +9,18 @@ const types = [
   { key: 'pie', text: 'pie', value: 'pie' }
 ]
 
-const ChartTypeDropdown = () => (
-  <Dropdown placeholder='Type' fluid multiple selection options={types} />
-)
+const ChartTypeDropdown = ({ selectedChartType, setSelectedChartType }) => {
+  const onChangeHandler = (e, { value }) => setSelectedChartType(value)
+  return (
+    <Dropdown
+      value={selectedChartType}
+      placeholder='Type'
+      fluid
+      selection
+      options={types}
+      onChange={onChangeHandler}
+    />
+  )
+}
 
 export default ChartTypeDropdown

@@ -7,7 +7,7 @@ const themes = [
 ]
 
 const ThemesDropdown = () => (
-  <Dropdown placeholder='Themes' fluid multiple selection options={themes} />
+  <Dropdown placeholder='Themes' fluid selection options={themes} />
 )
 
 export default ThemesDropdown

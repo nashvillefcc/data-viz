@@ -4,14 +4,27 @@ import { SidebarStyled } from './SidebarStyled'
 import LibraryDropdown from '../LibraryDropdown'
 import ChartTypeDropdown from '../ChartTypeDropdown'
 import ThemesDropdown from '../ThemeDropdown'
-const Sidebar = () => (
-  <SidebarStyled textAlign='left'>
-    <section>
-      <LibraryDropdown />
-      <ChartTypeDropdown />
-      <ThemesDropdown />
-    </section>
-  </SidebarStyled>
-)
+const Sidebar = ({
+  selectedLibrary,
+  setSelectedLibrary,
+  selectedChartType,
+  setSelectedChartType
+}) => {
+  return (
+    <SidebarStyled textAlign='left'>
+      <section>
+        <LibraryDropdown
+          selectedLibrary={selectedLibrary}
+          setSelectedLibrary={setSelectedLibrary}
+        />
+        <ChartTypeDropdown
+          selectedChartType={selectedChartType}
+          setSelectedChartType={setSelectedChartType}
+        />
+        <ThemesDropdown />
+      </section>
+    </SidebarStyled>
+  )
+}
 
 export default Sidebar

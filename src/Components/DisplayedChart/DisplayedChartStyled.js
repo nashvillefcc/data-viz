@@ -7,3 +7,10 @@ export const DisplayedChartStyled = styled(Container)`
   padding: 0 2rem;
   background-color: yellow;
 `
+
+export const ChartWrapper = styled.div`
+  height: 80%;
+  width: 80%;
+  background-color: teal;
+  align-self: center;
+`
