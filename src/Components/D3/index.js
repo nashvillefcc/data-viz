@@ -1,6 +1,4 @@
 import React from 'react'
-import {} from 'semantic-ui-react'
-
-const BarChart = () => <div style={{ color: 'white' }}>BarChart</div>
+import BarChart from './D3BarChart'
 
 export default { bar: <BarChart /> }

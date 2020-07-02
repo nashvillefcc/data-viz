@@ -2,30 +2,29 @@ import React from 'react'
 import { Header } from 'semantic-ui-react'
 import { ChartWrapper, DisplayedChartStyled } from './DisplayedChartStyled'
 import D3Charts from '../D3'
-const Placeholder = () => {
-  //inline styled only for placeholder
-  return (
-    <div
-      style={{
-        textAlign: 'center'
-      }}
-    >
-      placeholder
-    </div>
-  )
-}
+
+// add imported library objects to charts
 const charts = {
-  d3: D3Charts
+  d3: D3Charts,
+  chartjs: null,
+  googleCharts: null
 }
-const DisplayedChart = ({ children, selectedLibrary, selectedChartType }) => {
+
+/**
+ * charts will be displayed based on selectedChartType and selectedLibrary
+ * @param selectedLibrary string
+ * @param selectedChartType string
+ */
+const DisplayedChart = ({ selectedLibrary, selectedChartType }) => {
   return (
     <DisplayedChartStyled>
       <Header as='h1'>Title of chart</Header>
       <ChartWrapper>
-        {charts[selectedLibrary] ? (
+        {charts[selectedLibrary] &&
+        charts[selectedLibrary][selectedChartType] ? (
           charts[selectedLibrary][selectedChartType]
         ) : (
-          <p>no chart found</p>
+          <h1>no chart found</h1>
         )}
       </ChartWrapper>
     </DisplayedChartStyled>

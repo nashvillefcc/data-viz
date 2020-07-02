@@ -11,6 +11,6 @@ export const DisplayedChartStyled = styled(Container)`
 export const ChartWrapper = styled.div`
   height: 80%;
   width: 80%;
-  background-color: teal;
+  background-color: white;
   align-self: center;
 `

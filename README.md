@@ -56,6 +56,13 @@ Your app is ready to be deployed!
 
 See the [task board](https://github.com/nashvillefcc/data-viz/projects/1) for a list of proposed features and known issues.
 
+## State management
+
+State is managed using React hooks
+selectedLibrary and selectedChartType in /Layout/index.js are currently the most shared state
+
+Prop drilling is used to pass state down. This is a good opportunity to use another type of state management such and React.Context
+
 ## Contributing
 
 When contributing to this repository, please first discuss the change you wish to make with the
