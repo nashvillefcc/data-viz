@@ -18,7 +18,7 @@ const charts = {
 const DisplayedChart = ({ selectedLibrary, selectedChartType }) => {
   return (
     <DisplayedChartStyled>
-      <Header as='h1'>Title of chart</Header>
+      <Header as='h1'>D3: bar</Header>
       <ChartWrapper>
         {charts[selectedLibrary] &&
         charts[selectedLibrary][selectedChartType] ? (
