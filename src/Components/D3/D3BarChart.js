@@ -1,16 +1,18 @@
 import React, { useRef, useEffect } from 'react'
 import * as d3 from 'd3'
 import tempOneMonth from '../../mockData/tempOneMonth.json'
-const data = tempOneMonth
 
-const width = 700
-const height = 500
+const data = tempOneMonth;
+const width = 700;
+const height = 500;
 
 const barChartData = () => {
+
   let dateExtent = d3.extent(data, d => new Date(d.date))
   let min = d3.min(data, data => data.low)
   let max = d3.max(data, data => data.high)
   let xScale = d3
+    
     .scaleTime()
     .domain(dateExtent)
     .range([0, width])
@@ -24,7 +26,9 @@ const barChartData = () => {
     .scaleSequential()
     .domain([max, min])
     .interpolator(d3.interpolateRdYlBu)
+  
   const yAxis = d3.axisLeft().scale(yScale)
+
   return data.map(({ date, high, low }) => {
     return {
       x: xScale(new Date(date)),
@@ -34,7 +38,9 @@ const barChartData = () => {
     }
   })
 }
-/////////////////////
+
+///////////////////////////////
+
 let dateExtent = d3.extent(data, d => new Date(d.date))
 let min = d3.min(data, data => data.low)
 let max = d3.max(data, data => data.high)

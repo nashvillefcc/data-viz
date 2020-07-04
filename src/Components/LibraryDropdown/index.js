@@ -12,6 +12,7 @@ const LibraryDropdown = ({ selectedLibrary, setSelectedLibrary }) => {
   return (
     <Dropdown
       value={selectedLibrary}
+      open={true}
       fluid
       selection
       options={libraries}
