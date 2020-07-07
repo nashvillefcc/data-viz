@@ -12,6 +12,7 @@ const D3BarChart = () => {
   const [barsData, setBarsData] = useState([])
   const yAxisRef = useRef()
   const xAxisRef = useRef()
+  const brushRef = useRef()
   useEffect(() => {
     // d3.select(axisRef.current).call(yAxis)
     // Scales
@@ -40,7 +41,24 @@ const D3BarChart = () => {
     xAxis.ticks(d3.timeDay.every())
     xAxis.tickFormat(d3.timeFormat('%m/%d'))
     d3.select(xAxisRef.current).call(xAxis)
-    //
+    //Brush
+    const brush = d3
+      .brushX()
+      .extent([
+        [margin.left, margin.top],
+        [width, height - margin.top]
+      ])
+      .on('end', () => {
+        if (d3.event.selection) {
+          const [minX, maxX] = d3.event.selection
+          console.log('xScale(minX', xScale.invert(minX))
+          console.log('xScale(minX', xScale.invert(maxX))
+        }
+      })
+    console.log('brush', brush)
+    d3.select(brushRef.current).call(brush)
+
+    // Data for chart
     const bars = data.map(({ date, high, low }) => {
       return {
         x: xScale(new Date(date)),
@@ -52,9 +70,7 @@ const D3BarChart = () => {
     setBarsData(bars)
   }, [data])
 
-  /////////////////////
-
-  console.log('render bars', margin)
+  ////////////////////
 
   return (
     <Wrapper>
@@ -65,6 +81,7 @@ const D3BarChart = () => {
           ))}
         <YAxis ref={yAxisRef} margin={margin} />
         <XAxis id='x-axis' ref={xAxisRef} height={height} margin={margin} />
+        <g ref={brushRef} />
       </svg>
     </Wrapper>
   )
