@@ -3,7 +3,6 @@ import { Header, Dropdown } from 'semantic-ui-react'
 import { ChartWrapper, DisplayedChartStyled, DropdownWrapper, TitleWrapper } from './DisplayedChartStyled'
 import D3Charts from '../D3'
 
-
 // add imported library objects to charts
 const charts = {
   d3: D3Charts,
@@ -35,20 +34,23 @@ const types = [
 const DisplayedChart = () => {
 
   const [selectedLibrary, setSelectedLibrary] = useState("d3");
-  const [isLibraryMenuOpen, setIsLibraryMenuOpen] = useState(true);
+  const [isLibraryMenuOpen, setIsLibraryMenuOpen] = useState(false);
 
   const [selectedChartType, setSelectedChartType] = useState("bar");
-  const [isChartMenuOpen, setIsChartMenuOpen] = useState(true);
+  const [isChartMenuOpen, setIsChartMenuOpen] = useState(false);
 
   const handleLibraryClick = () => {
     setIsLibraryMenuOpen(!isLibraryMenuOpen);
+    setIsChartMenuOpen(false)
   }
 
   const handleChartClick = () => {
     setIsChartMenuOpen(!isChartMenuOpen)
+    setIsLibraryMenuOpen(false)
   }
 
   const onLibrarySelect = (e, { value }) => {
+    // console.log("selected", value)
     setSelectedLibrary(value);
     setIsLibraryMenuOpen(false)
   }
@@ -56,6 +58,12 @@ const DisplayedChart = () => {
   const onChartSelect = (e, { value }) => {
     setSelectedChartType(value);
     setIsChartMenuOpen(false)
+  }
+
+  const onLibraryClick = () => {
+    console.log("clicked")
+    // setSelectedLibrary(value)
+    setIsLibraryMenuOpen(false)
   }
 
   return (
@@ -84,7 +92,8 @@ const DisplayedChart = () => {
             open={true}
             fluid
             selection
-            options={libraries}
+            options={libraries.filter(library => library.value !== selectedLibrary)}
+            // onMouseDown={onLibrarySelect}
             onChange={onLibrarySelect}
           />
         </DropdownWrapper>}
@@ -95,13 +104,13 @@ const DisplayedChart = () => {
             open={true}
             fluid
             selection
-            options={types}
-            onChange={onChartSelect}
+            options={types.filter(type => type.value !== selectedChartType)}
+            onClick={onChartSelect}
           />
         </DropdownWrapper>
         }
       </TitleWrapper>
-      
+
       <ChartWrapper>
         {charts[selectedLibrary] &&
         charts[selectedLibrary][selectedChartType] ? (
