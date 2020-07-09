@@ -4,9 +4,65 @@ import tempOneMonth from '../../mockData/tempOneMonth.json'
 import { axisBottom, axisRight } from 'd3'
 import { Wrapper, XAxis, YAxis } from './D3Styled'
 
+const margin = { top: 20, right: 35, bottom: 20, left: 35 }
+
+const data = tempOneMonth
 const width = 700
 const height = 500
-const margin = { top: 20, right: 35, bottom: 20, left: 35 }
+
+const barChartData = () => {
+  let dateExtent = d3.extent(data, d => new Date(d.date))
+  let min = d3.min(data, data => data.low)
+  let max = d3.max(data, data => data.high)
+  let xScale = d3
+
+    .scaleTime()
+    .domain(dateExtent)
+    .range([0, width])
+
+  let yScale = d3
+    .scaleLinear()
+    .domain([min, max])
+    .range([height, 0])
+
+  let colorScale = d3
+    .scaleSequential()
+    .domain([max, min])
+    .interpolator(d3.interpolateRdYlBu)
+
+  const yAxis = d3.axisLeft().scale(yScale)
+
+  return data.map(({ date, high, low }) => {
+    return {
+      x: xScale(new Date(date)),
+      y: yScale(high),
+      height: yScale(low) - yScale(high),
+      fill: colorScale((Number(high) + Number(low)) / 2)
+    }
+  })
+}
+
+///////////////////////////////
+
+let dateExtent = d3.extent(data, d => new Date(d.date))
+let min = d3.min(data, data => data.low)
+let max = d3.max(data, data => data.high)
+let xScale = d3
+  .scaleTime()
+  .domain(dateExtent)
+  .range([0, width])
+
+let yScale = d3
+  .scaleLinear()
+  .domain([min, max])
+  .range([height, 0])
+
+let colorScale = d3
+  .scaleSequential()
+  .domain([max, min])
+  .interpolator(d3.interpolateRdYlBu)
+const yAxis = d3.axisLeft().scale(yScale)
+const xAxis = d3.axisLeft().scale(xScale)
 const D3BarChart = () => {
   const [data, setData] = useState(tempOneMonth)
   const [barsData, setBarsData] = useState([])
