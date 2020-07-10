@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from './Components/Layout/index.js'
+import DisplayedChart from './Components/DisplayedChart'
 
 function App () {
   return (
     <div className='App'>
-      <Layout />
+      <DisplayedChart />
     </div>
   )
 }
