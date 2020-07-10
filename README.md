@@ -1,12 +1,12 @@
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [Contact](#contact)
-
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+  - [Styling](#styling)
+- [Getting Started](#getting-started)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
 ## About The Project
 
@@ -15,10 +15,17 @@ graphing libraries. It will also serve as a data vizualization toolkit for
 members of FCC Nashville in future endeavors.
 
 ### Built With
-This project was bootstrapped with:
-* [Create React App](https://github.com/facebook/create-react-app)
-* [Semantic UI React](https://react.semantic-ui.com)
 
+This project was bootstrapped with:
+
+- [Create React App](https://github.com/facebook/create-react-app)
+- [Semantic UI React](https://react.semantic-ui.com)
+
+### Styling
+
+Use [styled-components](https://styled-components.com/) to modify components [Semantic UI React](https://react.semantic-ui.com) as needed.
+
+This [article](https://medium.com/serverlessguru/customizing-the-semantic-ui-react-library-with-styled-components-41cdab34be29) and existing components can be used as a reference.
 
 ## Getting Started
 
@@ -45,11 +52,16 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-
 ## Roadmap
 
 See the [task board](https://github.com/nashvillefcc/data-viz/projects/1) for a list of proposed features and known issues.
 
+## State management
+
+State is managed using React hooks
+selectedLibrary and selectedChartType in /Layout/index.js are currently the most shared state
+
+Prop drilling is used to pass state down. This is a good opportunity to use another type of state management such and React.Context
 
 ## Contributing
 
@@ -58,7 +70,6 @@ owners of this repository before making a change or assigning yourself to a tick
 contacted via discord or issue.
 
 See the [CONTRIBUTING](https://github.com/nashvillefcc/data-viz/blob/master/CONTRIBUTING.md) page for more details.
-
 
 ## Contact
 
