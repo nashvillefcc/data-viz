@@ -105,7 +105,7 @@ const DisplayedChart = () => {
             fluid
             selection
             options={types.filter(type => type.value !== selectedChartType)}
-            onClick={onChartSelect}
+            onChange={onChartSelect}
           />
         </DropdownWrapper>
         }
